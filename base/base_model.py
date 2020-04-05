@@ -9,10 +9,11 @@ class BaseModel(nn.Module):
     """
     @abstractmethod
     def forward(self, *inputs):
-        """
-        Forward pass logic
+        """Forward pass logic.
+        Returns
+        -------
+            Model output.
 
-        :return: Model output
         """
         raise NotImplementedError
 
@@ -22,4 +23,4 @@ class BaseModel(nn.Module):
         """
         model_parameters = filter(lambda p: p.requires_grad, self.parameters())
         params = sum([np.prod(p.size()) for p in model_parameters])
-        return super().__str__() + '\nTrainable parameters: {}'.format(params)
+        return super().__str__() + "\nTrainable parameters: {}".format(params)
