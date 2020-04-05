@@ -52,11 +52,11 @@ def main(config):
 if __name__ == "__main__":
     args = argparse.ArgumentParser(description="PyTorch Template")
     args.add_argument("-c", "--config", default=None, type=str,
-                      help="config file path (default: None)")
+                      help="Config file path (default: None)")
     args.add_argument("-r", "--resume", default=None, type=str,
-                      help="path to latest checkpoint (default: None)")
+                      help="Path to latest checkpoint (default: None)")
     args.add_argument("-d", "--device", default=None, type=str,
-                      help="indices of GPUs to enable (default: all)")
+                      help="Indices of GPUs to enable (default: all)")
 
     # Custom cli options to modify configuration from default values given in
     # json file.

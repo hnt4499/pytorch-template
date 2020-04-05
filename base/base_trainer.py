@@ -93,7 +93,7 @@ class BaseTrainer:
                         log[self.mnt_metric] >= self.mnt_best
                     improved = mi or ma
                 except KeyError:
-                    self.logger.warning("Warning: Metric "{}" is not found. "
+                    self.logger.warning("Warning: Metric \"{}\" is not found. "
                                         "Model performance monitoring is "
                                         "disabled.".format(self.mnt_metric))
                     self.mnt_mode = "off"

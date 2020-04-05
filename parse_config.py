@@ -75,8 +75,8 @@ class ConfigParser:
             resume = Path(args.resume)
             cfg_fname = resume.parent / "config.json"
         else:
-            msg_no_cfg = "Configuration file need to be specified. Add "
-                         ""-c config.json", for example."
+            msg_no_cfg = "Configuration file need to be specified. Add " \
+                         "\"-c config.json\", for example."
             assert args.config is not None, msg_no_cfg
             resume = None
             cfg_fname = Path(args.config)
@@ -101,8 +101,8 @@ class ConfigParser:
         """
         module_name = self[name]["type"]
         module_args = dict(self[name]["args"])
-        assert all([k not in module_args for k in kwargs]), "Overwriting kwargs"
-            " given in config file is not allowed"
+        assert all([k not in module_args for k in kwargs]), \
+            "Overwriting kwargs given in config file is not allowed."
         module_args.update(kwargs)
         return getattr(module, module_name)(*args, **module_args)
 
@@ -118,8 +118,8 @@ class ConfigParser:
         """
         module_name = self[name]["type"]
         module_args = dict(self[name]["args"])
-        assert all([k not in module_args for k in kwargs]), "Overwriting kwargs"
-            " given in config file is not allowed"
+        assert all([k not in module_args for k in kwargs]), \
+            "Overwriting kwargs given in config file is not allowed."
         module_args.update(kwargs)
         return partial(getattr(module, module_name), *args, **module_args)
 
@@ -128,7 +128,7 @@ class ConfigParser:
         return self.config[name]
 
     def get_logger(self, name, verbosity=2):
-        msg_verbosity = "Verbosity option {} is invalid. Valid options "
+        msg_verbosity = "Verbosity option {} is invalid. Valid options " \
                         "are {}.".format(verbosity, self.log_levels.keys())
         assert verbosity in self.log_levels, msg_verbosity
         logger = logging.getLogger(name)
